@@ -14,7 +14,7 @@ A full-featured e-commerce platform built using the MERN stack (MongoDB, Express
 ## Installation
 1. Clone the repository:  
    ```bash
-   git clone https://github.com/Onesmus123/E-commerce-Project.git
+   git clone https://github.com/Onesmus123/New-E-commerce.git
    ```  
 
 ### Backend Setup  
