@@ -1,0 +1,44 @@
+.our-store-page {
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+}
+
+.our-store-page h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #1a1a1a;
+}
+
+.store-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.store-card {
+  padding: 20px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.store-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.store-card h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #d4483a;
+}
+
+.store-card p {
+  font-size: 1em;
+  margin: 5px 0;
+  color: #333;
+}
