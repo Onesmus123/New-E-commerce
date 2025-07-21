@@ -1,175 +1,320 @@
-.navbar{
-    display: flex;
-    justify-content: space-around;
-    padding: 16px;
-    box-shadow: 0 1px 3px 2px black;
-    align-items: center;
-    }
-    
-    .nav-logo{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    }
-    .nav-logo p{
-    color: #171717;
-    font-size: 38px;
-    font-weight: 600;
-    }
+/* Load elegant font from Google */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Open+Sans:wght@400;600&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
 
-    .nav-menu{
-        display: flex;
-        align-items: center;
-        list-style: none;
-        gap: 50px;
-        color: #626262;
-        font-size: 20px;
-        font-weight: 500;
-    }
+/* Main Navbar */
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 60px; /* Good padding for spacing */
+  background-color: transparent;
+  transition: background-color 0.4s ease, box-shadow 0.3s ease;
+  font-family: 'Open Sans', sans-serif; /* Readable font */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
 
-    .nav-menu li{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 3px;
-        cursor: pointer;
-    }
+.navbar-active {
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #eee;
+}
 
-    .nav-menu hr{
-        border: none;
-        width: 80%;
-        height: 3px;
-        border-radius: 10px;
-        background: #ff4141;
-    }
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1300px; /* Increased max-width for better layout */
+}
 
-    .nav-login-cart{
-        display: flex;
-        align-items: center;
-        gap: 45px;
-    }
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 50px; /* Improved spacing between items */
+}
 
-    .nav-login-cart button{
-        width: 157px;
-        height: 58px;
-        outline: none;
-        border: 1px solid #7a7a7a;
-        border-radius: 75px;
-        color:#515151;
-        font-size: 20px;
-        font-weight: 500;
-        background: white;
-        cursor: pointer;
-    }
-    .nav-login-cart button:active{
-        background: #f3f3f3;
-    }
-    .nav-cart-count{
-        width: 22px;
-        height: 22px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: -35px;
-        margin-left: -55px;
-        border-radius: 11px;
-        font-size: 14px;
-        background: red;
-        color: white;
-    }
+/* Navigation links */
+.nav-left a,
+.nav-right a,
+.dropdown span,
+.dropdown-toggle {
+  text-decoration: none;
+  color: #000; /* Black text when colorless */
+  font-weight: 500;
+  font-size: 16px; /* Readable font size */
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
+}
 
-    .nav-dropdown{
-        display: none;
-    }
+.navbar-active .nav-left a,
+.navbar-active .nav-right a,
+.navbar-active .dropdown span,
+.navbar-active .dropdown-toggle {
+  color: #000; /* Black text on white navbar */
+}
 
-    @media(max-width:1280px){
-        .navbar{
-            padding: 12px 50px;
-        }
-        .nav-logo img{
-            width: 40px;
-        }
-        .nav-logo p{
-            font-size: 25px;
-        }
-        .nav-menu{
-            gap: 30px;
-            font-size: 16px;
-        }
-        .nav-login-cart{
-            gap: 30px;
-        }
-        .nav-login-cart button{
-            width: 120px;
-            height: 45px;
-            font-size: 16px;
-        }
-        .nav-cart-count{
-            margin-left: -40px;
-            font-size: 12px;
-        }
-    }
-    @media(max-width:1024px){
-        .navbar{
-            padding: 12px 30px;
-        }
-        .nav-menu{
-            gap: 25px;
-            font-size: 14px;
-        }
-        .nav-login-cart button{
-            width: 80px;
-            height: 35px;
-            font-size: 14px;
-        }
-        .nav-login-cart img{
-            width: 30px;
-        }
-        .nav-cart-count{
-            width: 18px;
-            height: 18px;
-        }
-    }
-    @media(max-width:800px){
-        .navbar{
-            padding: 10px 0px;
-        }
-        .nav-dropdown{
-            display: block;
-            width: 30px;
-            rotate: -90deg;
-            transition: 0.5s;
-        }
-        .nav-menu{
-            display: none;
-            height: 80px;
-            width: 100%;
-            position: absolute;
-            background-color: white;
-            justify-content: center;
-            top: 50px;
-        }
-        .nav-menu-visible{
-            display: flex;
-        }
-        .nav-dropdown.open{
-            transform: rotate(90deg);
-        }
-    }
-    @media(max-width:500px){
-        .navbar{
-            width: 8px 0px;
-            gap: 0;
-        }
-        .nav-logo{
-            transform: scale(0.8);
-        }
-        .nav-menu{
-            height: 70px;
-            top: 50px;
-        }
-        .nav-login-cart{
-            transform: scale(0.8);
-        }
-    }
+.nav-left a:hover,
+.nav-right a:hover,
+.dropdown span:hover,
+.dropdown-toggle:hover {
+  color: #d4a373; /* Gold-like accent on hover */
+}
+
+/* Smart Dropdown Styling */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Space between text and arrow */
+}
+
+.dropdown-arrow {
+  font-size: 10px; /* Smaller arrow for neatness */
+  transition: transform 0.3s ease;
+}
+
+.dropdown.open .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%); /* Center align dropdown */
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  display: none;
+  flex-direction: column;
+  min-width: 160px;
+  border: 1px solid #eee;
+  border-radius: 5px; /* Rounded corners for smart look */
+  padding: 5px 0;
+  margin-top: 5px; /* Small gap from toggle */
+}
+
+.dropdown.open .dropdown-content {
+  display: flex;
+}
+
+.dropdown-content a {
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #1a1a1a;
+  font-weight: 400;
+  font-size: 15px;
+  transition: background 0.3s;
+}
+
+.dropdown-content a:hover {
+  background-color: #f2f2f2;
+  color: #d4a373;
+}
+
+/* Brand text: Zimy [logo] Afrika */
+.nav-center {
+  flex-grow: 1;
+  text-align: center;
+  padding: 0 30px; /* Increased padding for better spacing */
+}
+
+.nav-center .brand-text {
+  display: flex;
+  align-items: center;
+  font-family: 'Playfair Display', serif; /* Elegant font for brand */
+  font-size: 28px; /* Larger, readable font size */
+  font-weight: 500;
+  color: #000; /* Black text when colorless */
+  text-decoration: none;
+  gap: 10px; /* Increased spacing between Zimy, logo, and Afrika */
+}
+
+.navbar-active .nav-center .brand-text {
+  color: #000; /* Black text on white navbar */
+}
+
+.brand-logo {
+  width: 45px; /* Slightly larger round logo */
+  height: 45px;
+  border-radius: 50%; /* Keep logo round */
+  object-fit: cover;
+  margin: 0 10px; /* Good spacing around logo */
+}
+
+/* Icons */
+.icon-btn {
+  font-size: 18px; /* Larger icon size */
+  color: #000; /* Black icons when colorless */
+  transition: color 0.3s ease;
+}
+
+.navbar-active .icon-btn {
+  color: #000; /* Black icons on white navbar */
+}
+
+.icon-btn:hover {
+  color: #d4a373;
+}
+
+/* Cart Icon Styles */
+.cart-icon {
+  position: relative;
+}
+
+.cart-icon img {
+  width: 22px; /* Slightly larger cart icon */
+}
+
+.nav-cart-count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #d4a373;
+  color: #fff;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
+/* Mobile Toggle Styles */
+.mobile-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 26px;
+  color: #000; /* Black toggle when colorless */
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 101;
+}
+
+.navbar-active .mobile-toggle {
+  color: #000; /* Black toggle on white navbar */
+}
+
+/* Mobile Menu Styles */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px 20px;
+    justify-content: flex-start;
+  }
+
+  .mobile-toggle {
+    display: block;
+  }
+
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-left,
+  .nav-right {
+    display: none;
+  }
+
+  .nav-center {
+    position: relative;
+    left: 0;
+    transform: none;
+    margin-bottom: 15px;
+  }
+}
+
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  z-index: 99;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-overlay.active {
+  display: flex;
+}
+
+.mobile-menu-content {
+  width: 80%;
+  max-width: 400px;
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.mobile-nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 10px 0;
+  border-bottom: 1px solid #333;
+}
+
+.mobile-dropdown {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.mobile-dropdown span {
+  padding: 10px 0;
+  border-bottom: 1px solid #333;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  color: #fff;
+}
+
+.mobile-dropdown-content {
+  display: none;
+  flex-direction: column;
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+.mobile-dropdown-content.show {
+  display: flex;
+}
+
+.mobile-dropdown-content a {
+  padding: 8px 0;
+  border-bottom: none;
+  font-size: 16px;
+  color: #fff;
+}
+
+.mobile-cart-link {
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 769px) {
+  .mobile-menu-overlay {
+    display: none !important;
+  }
+}
