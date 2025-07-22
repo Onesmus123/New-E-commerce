@@ -10,6 +10,25 @@
   color: #1a1a1a;
 }
 
+/* Carousel styling to match Shop.jsx */
+.full-width-carousel {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.full-width-slide {
+  position: relative;
+  width: 100%;
+  height: 400px; /* Match the height from Carousel component */
+}
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -47,3 +66,31 @@
   font-weight: bold;
   font-size: 1.1em;
 }
+
+.carousel-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 400px; /* Match the intended height */
+  overflow: hidden;
+}
+
+.home-link {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: rgb(0, 0, 0, 0.85);
+  padding: 6px 12px;
+  text-decoration: underline;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 14px;
+  z-index: 2;
+}
+
+.footwear-carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
